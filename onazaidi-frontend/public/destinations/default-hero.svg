@@ -1,0 +1,11 @@
+<svg width="1920" height="600" viewBox="0 0 1920 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="defaultGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7d9465;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6fae7a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a4a33;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="600" fill="url(#defaultGrad)"/>
+  <text x="960" y="300" font-family="Arial, sans-serif" font-size="72" fill="white" text-anchor="middle" opacity="0.3">TANZANIA</text>
+</svg>

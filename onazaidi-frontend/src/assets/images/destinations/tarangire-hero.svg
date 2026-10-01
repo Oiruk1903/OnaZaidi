@@ -1,0 +1,13 @@
+<svg width="1920" height="600" viewBox="0 0 1920 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tarangireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6B5344;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a3728;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="600" fill="url(#tarangireGrad)"/>
+  <text x="960" y="300" font-family="Arial, sans-serif" font-size="72" fill="white" text-anchor="middle" opacity="0.3">TARANGIRE</text>
+  <ellipse cx="600" cy="450" rx="100" ry="60" fill="#8B4513" opacity="0.3"/>
+  <ellipse cx="1300" cy="350" rx="80" ry="50" fill="#A0522D" opacity="0.25"/>
+</svg>

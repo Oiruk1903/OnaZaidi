@@ -1,0 +1,37 @@
+{
+  email admin@onazaidi.com
+}
+
+# Replace with your real domain(s)
+onazaidi.com, www.onazaidi.com {
+  root * /srv
+  encode gzip zstd
+
+  # SPA fallback: any unknown route goes to index.html
+  try_files {path} /index.html
+  file_server
+
+  # API proxy to the backend container on the same Docker network
+  handle /api/* {
+    reverse_proxy backend:8080
+  }
+
+  # Static files served by the backend (local storage mode)
+  handle /files/* {
+    reverse_proxy backend:8080
+  }
+
+  # Long cache for hashed assets
+  @assets path /assets/*
+  header @assets Cache-Control "public, max-age=31536000, immutable"
+
+  # Security headers
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "strict-origin-when-cross-origin"
+    Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    -Server
+  }
+}

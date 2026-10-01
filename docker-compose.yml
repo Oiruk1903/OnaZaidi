@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: onazaidi-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: onazaidi
+      POSTGRES_USER: onazaidi
+      POSTGRES_PASSWORD: onazaidi
+    ports:
+      - "5432:5432"
+    volumes:
+      - onazaidi_pgdata:/var/lib/postgresql/data
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: onazaidi-mailhog
+    restart: unless-stopped
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  minio:
+    image: quay.io/minio/minio:latest
+    container_name: onazaidi-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio12345
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - onazaidi_miniodata:/data
+
+volumes:
+  onazaidi_pgdata:
+  onazaidi_miniodata:
